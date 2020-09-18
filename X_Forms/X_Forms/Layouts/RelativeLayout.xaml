@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="X_Forms.Layouts.RelativeLayout">
+    <ContentPage.Content>
+        <!--In RelativeLayouts ist jedem Element eine Position relativ zum umgebenden oder anderen UI-Elemente zugeordnet-->
+        <!--Den untenstehenden Constraint-Properties werden ConstraintExpressions zugeordnet, welche definieren, an welchem
+        anderen Objekt und welcher Property die Ralationen gemessen wird und um welchen Faktor und welche Konstante diese verändert wird-->
+        <RelativeLayout>
+            <BoxView Color="Green"
+                     x:Name="BxV_Green"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.3}"/>
+            <BoxView Color="Blue" HeightRequest="100" WidthRequest="100"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=BxV_Green, Property=Width, Factor=0.5,Constant=-50}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=BxV_Green, Property=Height, Factor=1,Constant=-50}"/>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

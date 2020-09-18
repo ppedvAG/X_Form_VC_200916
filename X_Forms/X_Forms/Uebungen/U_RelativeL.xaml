@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Vgl. Layouts/RelativeLay.xaml-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="X_Forms.Uebungen.U_RelativeL">
+    <RelativeLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+
+        <StackLayout x:Name="StL_Oben" BackgroundColor="#F7F7F7"
+                         Padding="30"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.80}"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.05}">
+            <Label Text="$11.95"
+                       FontSize="50"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+            <Button Text="Add $7.99 Credit"
+                        TextColor="White"
+                        BackgroundColor="DarkCyan"
+                        CornerRadius="15"
+                        WidthRequest="250"
+                        VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+
+        <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToView, ElementName=StL_Oben, Property=Width, Factor=1}"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=StL_Oben, Property=Height, Factor=1.2}">
+            <Label Text="Why pay for credit?"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Because you can reach people who aren't on SkyApp by calling mobile and landline numbers, or spending SMS, at low-cost rates."
+                       HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"/>
+        </StackLayout>
+
+    </RelativeLayout>
+</ContentPage>

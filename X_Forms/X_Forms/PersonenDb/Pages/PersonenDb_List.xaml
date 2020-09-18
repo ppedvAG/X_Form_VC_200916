@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--vgl. CodeBehind-->
+<!--vgl. MainPage.xaml-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="X_Forms.PersonenDb.Pages.PersonenDb_List"
+             Padding="10"
+             Title="List">
+    <ListView x:Name="LstV_Liste"
+              ItemsSource="{Binding Personenliste}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete" x:Name="CaMenu_Delete" Clicked="CaMenu_Delete_Clicked" CommandParameter="{Binding}"/>
+                    </ViewCell.ContextActions>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Vorname}"/>
+                        <Label Text="{Binding Nachname}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="TbI_Click_Save"/>
+        <ToolbarItem Text="Load" Clicked="TbI_Click_Load"/>
+    </ContentPage.ToolbarItems>
+
+</ContentPage>

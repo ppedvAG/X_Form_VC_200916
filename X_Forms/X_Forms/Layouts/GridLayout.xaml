@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="X_Forms.Layouts.GridLayout">
+    <Grid>
+        <!--In einem Grid können Anzahl der Spalten und Zeilen sowie deren Breite/Höhe definiert werden-->
+        <!--Breiten- und Höhenangaben der Zeilen/Spalten können aus absolute Werte, Auto (= automatische
+        Angleichung an den Inhalt) oder * (= Aufteilung des restlichen Platzes) gesetzt werden-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Jedem Element muss eine Row und eine Column zugewiesen werden, in der es angezeigt werden soll.
+            Mittels RowSpan und ColumnSpan kann ein Element mehrere Zeilen/Spalten umfassen-->
+        <BoxView WidthRequest="50" BackgroundColor="Red" />
+        <BoxView BackgroundColor="Green" Grid.Column="1"/>
+        <BoxView BackgroundColor="Blue" Grid.Row="1"/>
+        <BoxView BackgroundColor="Yellow" Grid.Row="1" Grid.Column="1"/>
+        <BoxView BackgroundColor="Orange" Grid.Row="2" Grid.Column="0"
+		Grid.ColumnSpan="2"/>
+    </Grid>
+
+</ContentPage>

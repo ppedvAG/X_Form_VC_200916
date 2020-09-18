@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Mittels der MasterDetailPage-Navigation kann der App eine Menü-Navigation hinzugefügt werden (vgl. App.xaml (CodeBehind))-->
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="X_Forms.Navigation.MasterDetail.MDP"
+             xmlns:pages="clr-namespace:X_Forms.Navigation.MasterDetail"
+             xmlns:local="clr-namespace:X_Forms">
+    <MasterDetailPage.Master>
+        <!--Die MasterPage repräsentiert das Menü-->
+        <pages:MDPMaster x:Name="MasterPage" />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <!--Die DetailPage repräsentiert die gerade im Menü ausgewählte Seite. Hier kann zudem eine NavigationPage eingebaut
+        werden. Die in dieser Xaml definierte DetailPage ist die zuerst angezeigte Seite.-->
+         <NavigationPage>
+            <x:Arguments>
+                <local:MainPage/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

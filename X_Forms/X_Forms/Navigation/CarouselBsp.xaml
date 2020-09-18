@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Mittels der Carousel-Navigation kann der User mittels Links-Rechts-Swipe zwischen den ContentPages wechseln-->
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="X_Forms.Navigation.CarouselBsp"
+            xmlns:uebung="clr-namespace:X_Forms.Uebungen">
+    <ContentPage Title="Tab 1">
+        <StackLayout>
+            <Label Text="Tab 1"/>
+        </StackLayout>
+    </ContentPage>
+    <uebung:U_AbsoluteL Title="Absolute"/>
+    <uebung:U_GridL Title="Grid"/>
+    <uebung:U_RelativeL Title="Relative"/>
+</CarouselPage>
