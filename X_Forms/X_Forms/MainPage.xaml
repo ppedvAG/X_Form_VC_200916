@@ -124,12 +124,16 @@
                 <Button Text="Goto Carousel" Clicked="Button_Clicked_3"/>
             </StackLayout>
 
+            <!--Button zum Senden einer MC-Nachricht (vgl. CodeBehind und MC_SubscriberPage.cs)-->
             <Button Text="Sender MC-Nachricht"
                     x:Name="Btn_MC"
                     Clicked="Btn_MC_Clicked"/>
 
+            <!--Label zum Anzeigen des Batterie-Status mittels Xamarin.Essentials (vgl. CodeBehind)-->
             <Label x:Name="Lbl_Battery"/>
 
+            <!--Beispiele für lokalisierte Beschriftungen (vgl. CodeBehind sowie Resource.resx und Resource.de.resx)-->
+            <!--Mittels der x:Static-Bindung können Properties an resx-Files gebunden werden-->
             <Label x:Name="Lbl_LocalisationBsp" Text="{x:Static local:ResourcesBsp.String_Lbl}"/>
             <Button x:Name="Btn_LocalisationBsp" Text="{x:Static local:ResourcesBsp.String_Btn}" Clicked="Btn_LocalisationBsp_Clicked"/>
 

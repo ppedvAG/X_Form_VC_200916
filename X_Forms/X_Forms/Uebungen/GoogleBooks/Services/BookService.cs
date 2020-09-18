@@ -22,6 +22,8 @@ namespace X_Forms.Uebungen.GoogleBooks.Services
 
             //Json deserialisiert den String in Model-Objekte
             return JsonConvert.DeserializeObject<GBook>(json);
+
+            //return ObservableCollection<Item>(JsonConvert.DeserializeObject<GBook>(json).Items);
         }
     }
 }

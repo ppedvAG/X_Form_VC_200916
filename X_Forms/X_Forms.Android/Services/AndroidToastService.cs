@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using X_Forms.PersonenDb.Services;
 
+//vgl. AndroidDatabaseService.cs
 [assembly: Xamarin.Forms.Dependency(typeof(X_Forms.Droid.Services.ToastService_Android))]
 namespace X_Forms.Droid.Services
 {

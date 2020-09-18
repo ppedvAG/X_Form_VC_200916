@@ -22,6 +22,7 @@ namespace X_Forms
         //Konstruktor
         public MainPage()
         {
+            //Neuzuordnung der verwendetet Culure (Sprache uä.)
             ResourcesBsp.Culture = new System.Globalization.CultureInfo("de");
 
             //Initialisierung der UI (Xaml-Datei). Sollte immer erste Aktion des Konstruktors sein
@@ -42,8 +43,10 @@ namespace X_Forms
             //des im BindingContext gesetzten Objekts
             this.BindingContext = this;
 
+            //Zugriff auf die Battery-Klasse aus Xamarin.Essentials zum Zugriff auf den Batteriestatus
             Lbl_Battery.Text = Battery.State.ToString() + " | State: " + Battery.ChargeLevel * 100 + "%";
 
+            //Zuweisung von Sprachressourcen an UI-Elemente als Alternative zur x:Static-Bindung (vgl. Resource.resx und Resource.de.resx)
             //Btn_LocalisationBsp.Text = ResourcesBsp.String_Btn;
             //Lbl_LocalisationBsp.Text = ResourcesBsp.String_Lbl;
         }
@@ -76,6 +79,7 @@ namespace X_Forms
             }
         }
 
+        //Push-Navigation
         private void Button_Clicked_1(object sender, EventArgs e)
         {
             //Navigation zu einer anderen Page (Muss innerhalb einer NavigationPage stattfinden (vgl. App.xaml-CB))
@@ -100,10 +104,16 @@ namespace X_Forms
 
         private void Btn_MC_Clicked(object sender, EventArgs e)
         {
+            //Mittels des MessagingCenters können zwei voneinander unabhängige Objekte mittels eines Sender/Subscriber-Prinzips
+            //miteinander kommunizieren
+
+            //Instanziierung des Emfänger-Objekts (dieses muss zum Zeitpunkt der Nachricht-Sendes bereits existieren)
             Page page = new MC_SubscriberPage();
 
+            //Senden der Nachricht inkl. Sender, Titel und Inhalt
             MessagingCenter.Send(this, "Nachricht", Ent_Vorname.Text);
 
+            //Navigation zum Empfänger-Objekt (vgl. MC_SubscriberPage.xaml)
             Navigation.PushAsync(page);
         }
 

@@ -31,6 +31,20 @@ namespace X_Forms.PersonenDb.Pages
             this.BindingContext = this;
         }
 
+        //EventHandler zum Update einer Person
+        private void CaMenu_Update_Clicked(object sender, EventArgs e)
+        {
+            Model.Person p = (sender as MenuItem).CommandParameter as Model.Person;
+
+            p.Vorname = "TEST";
+
+            StaticObjects.Database.UpdatePerson(p);
+
+            this.Personenliste = new ObservableCollection<Model.Person>(StaticObjects.Database.GetPeople());
+
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Personenliste"));
+        }
+
         //EventHandler zum Löschen einer Person
         private async void CaMenu_Delete_Clicked(object sender, EventArgs e)
         {
@@ -54,19 +68,23 @@ namespace X_Forms.PersonenDb.Pages
             ToastController.ShowToastMessage($"{p.Vorname} {p.Nachname} wurde gelöscht.", ToastDuration.Long);
         }
 
+        //EventHandler zum Speichern der Liste (mittels Json)
         private void TbI_Click_Save(object sender, EventArgs e)
         {
+            //Aufruf der Save-Methode des JsonControllers
             JsonController.Save(Personenliste);
-
+            //Ausgabe eines Toasts
             ToastController.ShowToastMessage("Liste gespeichert", ToastDuration.Long);
         }
-        
+
+        //EventHandler zum Laden der Liste (mittels Json)
         private void TbI_Click_Load(object sender, EventArgs e)
         {
+            //Neuzuweisung der lokalen Liste mit durch JsonController geladenen Datei
             Personenliste = JsonController.Load<ObservableCollection<Model.Person>>();
-
+            //Aufruf des Events zum Aktualisieren der GUI
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Personenliste"));
-
+            //Ausgabe eines Toasts
             ToastController.ShowToastMessage("Liste geladen", ToastDuration.Long);
         }
     }

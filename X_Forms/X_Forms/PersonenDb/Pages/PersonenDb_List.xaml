@@ -16,6 +16,7 @@
                 <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Delete" x:Name="CaMenu_Delete" Clicked="CaMenu_Delete_Clicked" CommandParameter="{Binding}"/>
+                        <MenuItem Text="Update" x:Name="CaMenu_Update" Clicked="CaMenu_Update_Clicked" CommandParameter="{Binding}"/>
                     </ViewCell.ContextActions>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="{Binding Vorname}"/>
